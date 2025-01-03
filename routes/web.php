@@ -23,4 +23,8 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
+Route::middleware('admin')->prefix("admin")->group( function () {
+    Route::view('characters', 'admin.characters')->name("admin.characters");
+});
+
 require __DIR__.'/auth.php';
