@@ -4,8 +4,15 @@ use Livewire\Volt\Component;
 use App\Models\Character;
 
 new class extends Component {
+    protected $listeners = [
+        'charctersChanged' => 'refreshCharacters'
+    ];
+
     public $characters;
     public function mount() {
+        $this->characters = Character::all();
+    }
+    public function refreshCharacters() {
         $this->characters = Character::all();
     }
 }; ?>
