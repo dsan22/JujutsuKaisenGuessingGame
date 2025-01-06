@@ -5,7 +5,7 @@ use App\Models\Character;
 
 new class extends Component {
     protected $listeners = [
-        'charctersChanged' => 'refreshCharacters'
+        'charactersChanged' => 'refreshCharacters'
     ];
 
     public $characters;
@@ -19,9 +19,17 @@ new class extends Component {
         $character->delete();
         $this->refreshCharacters();
     }
+    
+    public function createCharacter() {
+        $this->dispatch('openCharacterModal');
+    }
+    public function editCharacter(Character $character) {
+        $this->dispatch('openCharacterModal', $character->id);
+    }
 }; ?>
 
 <div>
+    <x-button primary label="Add Character" wire:click="createCharacter" />
     <table class="w-full divide-y divide-gray-200 m-2">
         <thead class="text-sm uppercase bg-gray-300 text-gray-800">
             <tr>
@@ -81,4 +89,6 @@ new class extends Component {
             @endforeach
         </tbody>
     </table>
+
+    <livewire:characters.character_modal/>
 </div>

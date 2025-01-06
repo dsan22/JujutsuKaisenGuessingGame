@@ -18,4 +18,10 @@ class Character extends Model
     }
 
     protected $guarded = ['id'];
+    protected $casts=[
+        'is_alive' => 'boolean',
+        'have_domain_expansion' => 'boolean',
+        'have_reverse_cursed_technique' => 'boolean',
+        'used_black_flash' => 'boolean',
+    ];
 }
