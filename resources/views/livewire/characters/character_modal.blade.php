@@ -1,7 +1,7 @@
 <?php
 
 use Livewire\Volt\Component;
-use App\Models\Ark;
+use App\Models\Arc;
 use App\Models\Grade;
 use App\Models\Character;
 
@@ -11,7 +11,7 @@ new class extends Component {
 
     public $modalOpen = false;
 
-    public $arks;
+    public $arcs;
     public $grades;
 
     public $characterId = null;
@@ -21,11 +21,11 @@ new class extends Component {
     public $haveDomainExpansion = false;
     public $haveReverseCursedTechnique = false;
     public $usedBlackFlash = false;
-    public $arkId;
+    public $arcId;
     public $gradeId;
 
     public function mount() {
-        $this->arks = Ark::all();
+        $this->arcs = Arc::all();
         $this->grades = Grade::all();
         $this->resetForm();
     }
@@ -38,7 +38,7 @@ new class extends Component {
         $this->haveDomainExpansion = false;
         $this->haveReverseCursedTechnique = false;
         $this->usedBlackFlash = false;
-        $this->arkId = $this->arks[0]->id;
+        $this->arcId = $this->arcs[0]->id;
         $this->gradeId = $this->grades[0]->id;
     }
 
@@ -49,7 +49,7 @@ new class extends Component {
             $this->characterName = $character->name;
             $this->gender = $character->gender;
             $this->isAlive = $character->is_alive;
-            $this->arkId = $character->ark_id;
+            $this->arcId = $character->arc_id;
             $this->gradeId = $character->grade_id;
             $this->haveDomainExpansion = $character->have_domain_expansion;
             $this->haveReverseCursedTechnique = $character->have_reverse_cursed_technique;
@@ -65,7 +65,7 @@ new class extends Component {
         $this->validate([
             'characterName' => ['required', 'string', 'max:255'],
             'gender' => ['required', 'string', 'max:255'],
-            'arkId' => ['required', 'exists:arks,id'],
+            'arcId' => ['required', 'exists:arcs,id'],
             'gradeId' => ['required', 'exists:grades,id'],
             'isAlive' => ['required', 'boolean'],
             'haveDomainExpansion' => ['required', 'boolean'],
@@ -80,7 +80,7 @@ new class extends Component {
                 'name' => $this->characterName,
                 'gender' => $this->gender,
                 'is_alive' => $this->isAlive,
-                'ark_id' => $this->arkId,
+                'arc_id' => $this->arcId,
                 'grade_id' => $this->gradeId,
                 'have_domain_expansion' => $this->haveDomainExpansion,
                 'have_reverse_cursed_technique' => $this->haveReverseCursedTechnique,
@@ -92,7 +92,7 @@ new class extends Component {
                 'name' => $this->characterName,
                 'gender' => $this->gender,
                 'is_alive' => $this->isAlive,
-                'ark_id' => $this->arkId,
+                'arc_id' => $this->arcId,
                 'grade_id' => $this->gradeId,
                 'have_domain_expansion' => $this->haveDomainExpansion,
                 'have_reverse_cursed_technique' => $this->haveReverseCursedTechnique,
@@ -120,11 +120,11 @@ new class extends Component {
                 wire:model="gender"
             />
             <x-native-select
-                label="Ark Introduced At"
-                :options="$arks"
+                label="Arc Introduced At"
+                :options="$arcs"
                 option-label="name"
                 option-value="id"
-                wire:model="arkId"
+                wire:model="arcId"
             />
             <x-native-select
                 label="Grade"

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('is_alive');
-            $table->foreignId('ark_id')->constrained();
+            $table->foreignId('arc_id')->constrained();
             $table->foreignId('grade_id')->constrained();
             $table->boolean('have_domain_expansion');
             $table->boolean('have_reverse_cursed_technique');

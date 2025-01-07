@@ -36,7 +36,7 @@ new class extends Component {
                 <th>Name</th>
                 <th>Gender</th>
                 <th>Alive</th>
-                <th>Ark Introduced At</th>
+                <th>Arc Introduced At</th>
                 <th>Grade</th>
                 <th>Domain Expansion</th>
                 <th>Reverse Curse Technique</th>
@@ -57,7 +57,7 @@ new class extends Component {
                         <x-badge rounded negative label="Dead" />
                         @endif
                     </td>
-                    <td>{{$character->ark->name}} </td>
+                    <td>{{$character->arc->name}} </td>
                     <td>{{$character->grade->name}}</td>
                     <td>@if($character->have_domain_expansion) 
                             <x-badge rounded positive label="Have" />

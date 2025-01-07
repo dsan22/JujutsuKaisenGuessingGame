@@ -9,8 +9,8 @@ class Character extends Model
 {
     use HasFactory;
 
-    public function ark(){
-        return $this->belongsTo(Ark::class);
+    public function arc(){
+        return $this->belongsTo(Arc::class);
     }
 
     public function grade(){
