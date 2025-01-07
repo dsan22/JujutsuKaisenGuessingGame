@@ -25,6 +25,7 @@ Route::view('profile', 'profile')
 
 Route::middleware('admin')->prefix("admin")->group( function () {
     Route::view('characters', 'admin.characters')->name("admin.characters");
+    Route::view('arcs', 'admin.arcs')->name("admin.arcs");
 });
 
 require __DIR__.'/auth.php';
