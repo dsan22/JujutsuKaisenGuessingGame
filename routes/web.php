@@ -29,4 +29,6 @@ Route::middleware('admin')->prefix("admin")->group( function () {
     Route::view('grades', 'admin.grades')->name("admin.grades");
 });
 
+Route::view('game', 'guest.guess_game')->name("guest.game");
+
 require __DIR__.'/auth.php';
