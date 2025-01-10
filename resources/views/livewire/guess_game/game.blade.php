@@ -69,34 +69,85 @@ new class extends Component {
             @foreach ($guesses as $character)
                 <tr class="text-center">
                     <td>{{$character->name}}</td>
-                    <td class="capitalize">{{$character->gender}}</td>
-                    <td>
-                        @if($character->is_alive)
-                        <x-badge rounded positive label="Alive" />
+                    <td class="capitalize">
+                        @if($character->gender==$answer->gender)
+                            <x-badge rounded positive :label="$character->gender" />
                         @else
-                        <x-badge rounded negative label="Dead" />
-                        @endif
-                    </td>
-                    <td>{{$character->arc->name}} </td>
-                    <td>{{$character->grade->name}}</td>
-                    <td>@if($character->have_domain_expansion) 
-                            <x-badge rounded positive label="Have" />
-                         @else 
-                            <x-badge rounded negative label="Doesn't have" /> 
-                         @endif
-                    </td>
-                    <td>
-                        @if($character->have_reverse_cursed_technique) 
-                            <x-badge rounded positive label="Have" /> 
-                        @else 
-                            <x-badge rounded negative label="Doesn't have" /> 
+                            <x-badge rounded negative :label="$character->gender" />
                         @endif
                     </td>
                     <td>
-                        @if($character->used_black_flash) 
-                            <x-badge rounded positive label="Used" /> 
-                        @else 
-                            <x-badge rounded negative label="Didn't used" /> 
+                        @if($character->is_alive==$answer->is_alive)
+                            @if ($character->is_alive)
+                                <x-badge rounded positive label="Alive" />
+                            @else
+                                <x-badge rounded positive label="Dead" />
+                            @endif
+                        @else
+                            @if ($character->is_alive)
+                                <x-badge rounded negative label="Alive" />
+                            @else
+                                <x-badge rounded negative label="Dead" />
+                            @endif
+                        @endif
+                    </td>
+                    <td>
+                        @if($character->arc->name==$answer->arc->name)
+                            <x-badge rounded positive :label="$character->arc->name" />
+                        @else
+                            <x-badge rounded amber :label="$character->arc->name" />
+                        @endif
+                    </td>
+                    <td>
+                        @if($character->arc->name==$answer->arc->name)
+                                <x-badge rounded positive :label="$character->grade->name" />
+                            @else
+                                <x-badge rounded negative :label="$character->grade->name" />
+                            @endif
+                        </td>
+                    <td>
+                        @if($character->have_domain_expansion==$answer->have_domain_expansion)
+                            @if ($character->have_domain_expansion)
+                                <x-badge rounded positive label="Have" />
+                            @else
+                                <x-badge rounded positive label="Doesen't have" />
+                            @endif
+                        @else
+                            @if ($character->have_domain_expansion)
+                                <x-badge rounded negative label="Have" />
+                            @else
+                                <x-badge rounded negative label="Doesen't have" />
+                            @endif
+                        @endif
+                    </td>
+                    <td>
+                        @if($character->have_cursed_technique==$answer->have_cursed_technique)
+                            @if ($character->have_cursed_technique)
+                                <x-badge rounded positive label="Have" />
+                            @else
+                                <x-badge rounded positive label="Doesen't have" />
+                            @endif
+                        @else
+                            @if ($character->have_cursed_technique)
+                                <x-badge rounded negative label="Have" />
+                            @else
+                                <x-badge rounded negative label="Doesen't have" />
+                            @endif
+                        @endif
+                    </td>
+                    <td>
+                    @if($character->used_black_flash==$answer->used_black_flash)
+                            @if ($character->used_black_flash)
+                                <x-badge rounded positive label="Used" />
+                            @else
+                                <x-badge rounded positive label="Didn't use" />
+                            @endif
+                        @else
+                            @if ($character->used_black_flash)
+                                <x-badge rounded negative label="Used" />
+                            @else
+                                <x-badge rounded negative label="Didn't use" />
+                            @endif
                         @endif
                     </td>
                 </tr>
