@@ -25,7 +25,7 @@ new class extends Component {
     public $gradeId;
 
     public function mount() {
-        $this->arcs = Arc::all();
+        $this->arcs = Arc::orderBy('order')->get();
         $this->grades = Grade::all();
         $this->resetForm();
     }
