@@ -95,7 +95,12 @@ new class extends Component {
                         @if($character->arc->name==$answer->arc->name)
                             <x-badge rounded positive :label="$character->arc->name" />
                         @else
-                            <x-badge rounded amber :label="$character->arc->name" />
+                            @if ($character->arc->order<$answer->arc->order)
+                                <x-badge icon="arrow-up" rounded amber :label="$character->arc->name" />
+                            @else
+                                <x-badge icon="arrow-down" rounded amber :label="$character->arc->name" />
+                            @endif
+                           
                         @endif
                     </td>
                     <td>
