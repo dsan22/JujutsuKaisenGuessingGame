@@ -115,13 +115,13 @@ new class extends Component {
                             @if ($character->have_domain_expansion)
                                 <x-badge rounded positive label="Have" />
                             @else
-                                <x-badge rounded positive label="Doesen't have" />
+                                <x-badge rounded positive label="Doesn't have" />
                             @endif
                         @else
                             @if ($character->have_domain_expansion)
                                 <x-badge rounded negative label="Have" />
                             @else
-                                <x-badge rounded negative label="Doesen't have" />
+                                <x-badge rounded negative label="Doesn't have" />
                             @endif
                         @endif
                     </td>
@@ -130,13 +130,13 @@ new class extends Component {
                             @if ($character->have_cursed_technique)
                                 <x-badge rounded positive label="Have" />
                             @else
-                                <x-badge rounded positive label="Doesen't have" />
+                                <x-badge rounded positive label="Doesn't have" />
                             @endif
                         @else
                             @if ($character->have_cursed_technique)
                                 <x-badge rounded negative label="Have" />
                             @else
-                                <x-badge rounded negative label="Doesen't have" />
+                                <x-badge rounded negative label="Doesn't have" />
                             @endif
                         @endif
                     </td>
