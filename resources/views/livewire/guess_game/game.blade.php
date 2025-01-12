@@ -104,7 +104,7 @@ new class extends Component {
                         @endif
                     </td>
                     <td>
-                        @if($character->arc->name==$answer->arc->name)
+                        @if($character->grade->name==$answer->grade->name)
                                 <x-badge rounded positive :label="$character->grade->name" />
                             @else
                                 <x-badge rounded negative :label="$character->grade->name" />
